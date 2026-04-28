@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.json({ message: "AI Resume Screener Middleware is successfully running!" });
+});
+
 const upload = multer({ storage: multer.memoryStorage() });
 
 app.post('/api/analyze', upload.single('resume'), async (req, res) => {
