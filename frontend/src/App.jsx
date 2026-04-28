@@ -16,6 +16,11 @@ export default function App() {
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
+    
+    // Ping the backend and middleware to wake them up from "sleep mode"
+    axios.get('https://resume-screener-middleware.onrender.com/').catch(() => {});
+    axios.get('https://resume-screener-backend-3hta.onrender.com/').catch(() => {});
+    
     return () => clearInterval(timer);
   }, []);
 
