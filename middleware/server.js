@@ -22,7 +22,7 @@ app.post('/api/analyze', upload.single('resume'), async (req, res) => {
         formData.append('jobDescription', jobDescription);
         if (additionalCriteria) formData.append('additionalCriteria', additionalCriteria);
 
-        const response = await axios.post('http://localhost:8000/analyze', formData, {
+        const response = await axios.post('https://resume-screener-backend-761w.onrender.com/analyze', formData, {
             headers: { ...formData.getHeaders() }
         });
 

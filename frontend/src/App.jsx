@@ -48,7 +48,7 @@ export default function App() {
     formData.append('additionalCriteria', additionalCriteria);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/analyze', formData);
+      const response = await axios.post('https://resume-screener-middleware.onrender.com/api/analyze', formData);
       setResults(response.data);
     } catch (error) {
       console.error(error);
