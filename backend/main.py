@@ -21,6 +21,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"message": "AI Resume Screener Backend is successfully running!"}
+
 def extract_text(file: UploadFile, content: bytes) -> str:
     text = ""
     if file.filename.endswith(".pdf"):
